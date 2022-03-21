@@ -25,12 +25,10 @@ public class CashRegister {
 //
 //		If the amount tendered is more than the cost of the item, display the number of bills and coins that should be given to the customer.
 		double change = cashTendered - cost;
-		int tenDollarBills = (int) change / 10; // TODO Get ten dollar bill total to show up without minimal if()
-												// functions
+		int tenDollarBills = (int) change / 10;
 		int fiveDollarBills = (int) change % 10;
 		int oneDollarBills = (int) change % 5;
-
-//		Dollar calculations are working accurately!
+//		It took me awhile to realize I wouldn't ever need multiples of the 5 dollar bill.
 		if (cashTendered > cost) {
 			System.out.print("Your change is ");
 		}
@@ -43,18 +41,18 @@ public class CashRegister {
 		if (change >= 1) {
 			System.out.print(oneDollarBills + " one dollar bills ");
 		}
-
+//		Coin variables
 		double coins = change - (int) change;
 		float coins2 = (float) coins;
-		int quarter1 = (int) (coins2 / 0.25); // Quarter works fine.
+		int quarter1 = (int) (coins2 / 0.25);
 		float dime1 = (float) (coins2 % 0.25);
 		float dime2 = (int) (dime1 / 0.1);
 		float nickel1 = (float) (dime1 % 0.1);
 		double nickel2 = (int) (nickel1 / .05);
-		// Calculation work fine up to here. Nickel and penny non working.
-		int penny1 = (int) ((dime1 % .01) % .05);
-		float penny2 = (int) (penny1 / 0.01);
+		float penny1 = (float) ((dime1 % 0.1) % .05);
+		float penny2 = (float) (penny1 / 0.01);
 
+// 		Coin System outs using if statements
 		if (quarter1 > 0) {
 			System.out.print((int) quarter1 + " quarters ");
 		}
@@ -65,10 +63,9 @@ public class CashRegister {
 			System.out.print((int) (nickel2) + " nickel ");
 		}
 		if (penny2 > 0) {
-			System.out.print(penny2 + " pennies");
+			System.out.print(Math.round(penny2) + " pennies");
 		}
-
-//		System.out.println(" " + coins2); // This print is to test coins
-
+// 		Closed scanner
+		cashIn.close();
 	}
 }
