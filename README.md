@@ -5,14 +5,13 @@
 ## Overview
 
 Cash register simulator.
-TODO: FINISH WRITING THIS!!!
+
 
 ## Technologies/Skills used
 
 * Java
 * Eclipse
-* TODO: MORE
+* Google
 
 ## Lessons Learned
-
-TODO: WRITE THIS
+The main lesson I learned from making this program is that there can be many ways to solve save same problem. 

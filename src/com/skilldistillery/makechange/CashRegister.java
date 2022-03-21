@@ -36,23 +36,39 @@ public class CashRegister {
 		}
 		if (change >= 10) {
 			System.out.print(tenDollarBills + " ten dollar bill,");
-		} if (change % 10 >=5  || change >= 5 && change < 10) {
+		}
+		if (change % 10 >= 5 || change >= 5 && change < 10) {
 			System.out.print(" 1 five dollar bill, ");
-		} if (change >= 1) {
+		}
+		if (change >= 1) {
 			System.out.print(oneDollarBills + " one dollar bills ");
 		}
 
-//		Noted out coins until dollars are fully working. May change format.
-		double coins = change - ((int)change);
-		double quarter1 = coins / 0.25;
-		double dime1 = 0.10;
-		double nickel1 = 0.5;
-		double penny1 = 0.01;
-		
-		if (quarter1 > 0)
-			System.out.print((int)quarter1 + " quarters");
+		double coins = change - (int)change;
+		float coins2 = (float) coins;
+		int quarter1 = (int)(coins2 / 0.25); // Quarter works fine.
+		float dime1 = (float) (coins2 % 0.25);
+		float dime2 =  (int)(dime1 / 0.1);
+		//Calculation work fine up to here. Nickel and penny non working.
+		float nickel1 = (float)(dime1 % 0.1);
+		double nickel2 = (int)(nickel1 / 5);
+		int penny1 = (int)((dime1 % .01) % .05);
+		float penny2 =  (int)(penny1 / 0.01);
 
-//		System.out.println(coins); // This print is to test coins
+		if (quarter1 > 0) {
+			System.out.print((int) quarter1 + " quarters ");
+		}
+		if (dime2 > 0) {
+			System.out.print(dime2 + " dimes ");
+		}
+		if (nickel2 > 0) {
+			System.out.print((int) (nickel2) + " nickels ");
+		}
+		if (penny2 > 0) {
+			System.out.print(penny2 + " pennies");
+		}
+
+//		System.out.println(" " + coins2); // This print is to test coins
 
 	}
 }
