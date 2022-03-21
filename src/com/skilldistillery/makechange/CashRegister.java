@@ -44,16 +44,16 @@ public class CashRegister {
 			System.out.print(oneDollarBills + " one dollar bills ");
 		}
 
-		double coins = change - (int)change;
+		double coins = change - (int) change;
 		float coins2 = (float) coins;
-		int quarter1 = (int)(coins2 / 0.25); // Quarter works fine.
+		int quarter1 = (int) (coins2 / 0.25); // Quarter works fine.
 		float dime1 = (float) (coins2 % 0.25);
-		float dime2 =  (int)(dime1 / 0.1);
-		//Calculation work fine up to here. Nickel and penny non working.
-		float nickel1 = (float)(dime1 % 0.1);
-		double nickel2 = (int)(nickel1 / 5);
-		int penny1 = (int)((dime1 % .01) % .05);
-		float penny2 =  (int)(penny1 / 0.01);
+		float dime2 = (int) (dime1 / 0.1);
+		float nickel1 = (float) (dime1 % 0.1);
+		double nickel2 = (int) (nickel1 / .05);
+		// Calculation work fine up to here. Nickel and penny non working.
+		int penny1 = (int) ((dime1 % .01) % .05);
+		float penny2 = (int) (penny1 / 0.01);
 
 		if (quarter1 > 0) {
 			System.out.print((int) quarter1 + " quarters ");
@@ -62,7 +62,7 @@ public class CashRegister {
 			System.out.print(dime2 + " dimes ");
 		}
 		if (nickel2 > 0) {
-			System.out.print((int) (nickel2) + " nickels ");
+			System.out.print((int) (nickel2) + " nickel ");
 		}
 		if (penny2 > 0) {
 			System.out.print(penny2 + " pennies");
